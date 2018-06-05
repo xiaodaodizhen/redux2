@@ -38,6 +38,6 @@ class CartList extends Component {
 }
 export default connect((state) => {
   return {
-    carts: state.cart
+    carts: state.cart     //以前的store.getState().cart
   }
 }, actions)(CartList);

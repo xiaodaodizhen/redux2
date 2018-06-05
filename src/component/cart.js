@@ -9,9 +9,8 @@ export default class Cart extends Component {
   render() {
     return (<div className="container">
       <h3 className="text-center">购物车</h3>
-      <CartTail />
       <CartList />
-      ddd.
+      <CartTail />
     </div>);
   }
 }
