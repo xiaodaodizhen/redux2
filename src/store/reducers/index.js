@@ -1,5 +1,7 @@
-// 合并组件
+// 合并管理
+import counter from "./counter";
 import { combineReducers } from "redux";
-import cart from "./cart";
-// cart:[]
-export default new combineReducers({ cart });
+// {counter:{number:0}}
+export default new combineReducers({
+  counterdata: counter
+});

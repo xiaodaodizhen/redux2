@@ -1,4 +1,3 @@
-// 更改是否选中
-export const CHANGE_CHECK = "CHANGE_CHECK";
-// 删除功能
-export const REMOVE_CART = "REMOVE_CART";
+// 定义动作常量
+export const ADD = 'ADD';
+export const DELETE = 'DELETE';

@@ -38,6 +38,6 @@ class CartList extends Component {
 }
 export default connect((state) => {
   return {
-    carts: state.cart     //以前的store.getState().cart
+    carts: state.cart     //以前的store.getState().cart-----------------因为 在外部index.js 中使用<Provider>包裹了组件，传递了store 参数
   }
 }, actions)(CartList);
