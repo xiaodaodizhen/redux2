@@ -1,5 +1,7 @@
 // {Provider,connect}
 import React, { Component } from "react";
+import { bindActionCreators } from "redux";
+
 let Context = React.createContext();// 创建上下文,,,可以通过Context.Provider传递参数，通过Context.Consumer接收参数。
 class Provider extends Component {
     // Provider有一个属性是store
@@ -21,7 +23,7 @@ let connect = (mapStateToProps, mapDispatchToProps) => (ComponentOld) => {
                     // let state = mapStateToProps(store.getState());
                     // let actions = mapDispatchToProps(store.dispatch);
                     // return <ComponentOld {...state} {...actions}></ComponentOld>;
-                    // 以上方法虽然能该数据，但是不能更新视图，（视图是根据state进行更改的）
+                    // 以上方法虽然能更改数据，但是不能更新视图，（视图是根据state进行更改的）
                     class High extends Component {// 此处高阶组件的作用是为了拿到this.state，然后更改视图setState()
                         constructor() {
                             super();
@@ -36,13 +38,16 @@ let connect = (mapStateToProps, mapDispatchToProps) => (ComponentOld) => {
                             this.unsub();
                         }
                         render() {
-                            let actions = mapDispatchToProps(store.dispatch);
+                            let actions;
+                            if (typeof mapDispatchToProps == "function") { // 传入的mapDispatchToProps参数是方法的情况
+                                actions = mapDispatchToProps(store.dispatch);
+                            } else {// 传入的mapDispatchToProps参数是对象的情况---这里的对象，是从store文件夹-》actions文件夹-》counter.js的counter对象
+                                actions = bindActionCreators(mapDispatchToProps, store.dispatch);// 通过bindActionCreators方法转换为一个所需对象
+                            }
                             return <ComponentOld {...this.state} {...actions}></ComponentOld>
                         }
                     }
-
-                    return <NewProxy />
-
+                    return <High />
                 }}
             </Context.Consumer>
         }

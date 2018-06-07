@@ -1,10 +1,10 @@
 import * as types from "../action-types";
 let counter = {
   add(count) {
-    return { type: 'ADD', count: count };
+    return { type: types.ADD, count: count };
   },
   del(count) {
-    return { type: 'DELETE', count: count }
+    return { type: types.DELETE, count: count }
   }
 };
 export default counter;
