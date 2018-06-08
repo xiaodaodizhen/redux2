@@ -3,9 +3,9 @@ import * as types from "../action-types";
 let initState = { number: 0 };
 function counters(state = initState, action) {
   switch (action.type) {
-    case ADD:
+    case types.ADD:
       return { number: state.number + action.count };
-    case DELETE:
+    case types.DELETE:
       return { number: state.number - action.count };
   }
   return state;
