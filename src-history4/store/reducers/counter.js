@@ -5,7 +5,10 @@ function counters(state = initState, action) {
   switch (action.type) {
     case types.ADD:
       return { number: state.number + action.count };
- 
+    case types.DELETE:
+      return { number: state.number - action.count };
+    case types.PAYLOAD:
+      return { number: state.number + action.payload };
   }
   return state;
 }

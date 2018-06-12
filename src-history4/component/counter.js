@@ -9,6 +9,19 @@ class Counter extends Component {
       <button onClick={() => {
         this.props.add(2);
       }}>+</button>
+      <button onClick={() => {
+        this.props.delete(1);
+      }}>-</button>
+      <button onClick={() => {
+        this.props.addAsync(2);
+      }}>+</button>
+      <button onClick={() => {
+        this.props.addPromise(3);
+      }}>+</button>
+      <button onClick={() => {
+        this.props.addPromiseTwo(3);
+      }}>+</button>
+
     </div>)
   }
 }
