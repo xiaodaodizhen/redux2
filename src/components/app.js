@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { HashRouter as Router, Link } from "react-router-dom";
+import { HashRouter as Router, Link } from "../react-router-dom";
+
 export default class APP extends Component {
     render() {
         return (
@@ -28,7 +29,6 @@ export default class APP extends Component {
                         <div className="col-md-12">
                             {/*  第一种写法 这里的this.props.children 是index.js 中<APP>标签内的路由规则*/}
                             {this.props.children}
-hhh
 
                             {/*  第二种写法 可以直接把index.js 中<APP>标签内的路由规则直接放到这里*/}
                             {/* <Route path="/home" component={Home} /> */}

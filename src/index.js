@@ -9,14 +9,14 @@ import 'bootstrap/dist/css/bootstrap.css';
  */
 // import { HashRouter as Router, Route } from 'react-router-dom';
 
-import { HashRouter as Router, Route } from "./react-router-dom/index";
+import { Route } from "./react-router-dom/index";
 // Router ：路由容器   Route ：路由规则
 
 let Home = (props, context) => {
     // *******************使用Route标签，会传入props 和context参数
     // <Home/> 如果当作普通组件使用，这两个参数为空对象
     /* <Route path="/home" component={Home} />  如果在Route标签使用了本组件会打印出这两个参数属性*/
-    console.log(props, context);
+    // console.log(props, context);
     return (<div>首页</div>);
 };
 let User = () => (<div>用户管理</div>);
@@ -41,5 +41,5 @@ ReactDOM.render(
         <Route path="/user" component={User} />
         <Route path="/profile" component={Profile} />
     </App >,
-    window.root
+    document.querySelector("#root")
 );
