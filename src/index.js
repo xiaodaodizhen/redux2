@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import App from "./components/app";
+import User from "./components/User";
 import 'bootstrap/dist/css/bootstrap.css';
 /**
  * 常用的路由模块
@@ -19,7 +20,7 @@ let Home = (props, context) => {
     // console.log(props, context);
     return (<div>首页</div>);
 };
-let User = () => (<div>用户管理</div>);
+// let User = () => (<div>用户管理</div>);
 let Profile = () => (<div>个人设置</div>);
 // 渲染的时候会先取当前的路径（location.hash），然后跟path进行匹配，如果成功则显示componet 指定的组件，如果失败则不显示
 // ReactDOM.render(

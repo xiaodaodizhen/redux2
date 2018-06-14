@@ -24,6 +24,7 @@
   },
   "devDependencies": {
     "bootstrap": "^3.3.4",
+    "path-to-regexp": "^2.2.1",
     "react-router-dom": "^4.3.1"
   }
 }

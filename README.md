@@ -11,6 +11,7 @@
 - npm install babel-polyfill
 - npm install redux-saga
 - npm install react-router-dom
+- npm install path-to-regexp (路径转为正则)
 
 - 中间件
  - redux-logger (打印日志)
