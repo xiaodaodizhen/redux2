@@ -1,3 +1,8 @@
+
+//---------------------------《实现hashRouter》源码---监听地址栏，更改页面状态（setState()），通过getChildContext方法将参数传入子组件中-----------------------
+
+
+
 import React, { Component } from "react";
 import PropTypes from "prop-types";// 对组件的props 中的变量进行类型检测
 export default class HashRouter extends Component {
