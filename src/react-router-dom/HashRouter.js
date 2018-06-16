@@ -13,15 +13,24 @@ export default class HashRouter extends Component {
     };
     constructor(props) {
         super(props);
-        this.state = { location: { pathname: window.location.hash.slice(1) || '/' } };
+        this.state = { location: { state: {}, pathname: window.location.hash.slice(1) || '/' } };
     }
 
     getChildContext() { // 通过上下文将 对象传递给子组件????????????????????不知道这个方法什么时候调用
+        let that = this;
         return {
             location: this.state.location,
             history: {
                 push(path) {
-                    window.location.hash = path;
+                    if (typeof path == 'object') {
+                        // state 是用来保存状态的，（可以保留任意值）
+                        let { pathname, state } = path;
+                        that.setState({ location: { ...that.state.location, state } }, () => {
+                            window.location.hash = pathname;
+                        });
+                    } else {
+                        window.location.hash = path;
+                    }
                 }
             }
         }
@@ -33,7 +42,7 @@ export default class HashRouter extends Component {
 
         let render = () => {
             // console.log(window.location.hash.slice(1));----例如 : /user 
-            this.setState({ location: { pathname: window.location.hash.slice(1) || '/' } });
+            this.setState({ location: { ...this.state.location, pathname: window.location.hash.slice(1) || '/' } });
         }
         window.addEventListener("hashchange", render);
     }

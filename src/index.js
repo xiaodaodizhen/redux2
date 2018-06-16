@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import App from "./components/app";
 import User from "./components/User";
+import Login from "./components/Login";
 import 'bootstrap/dist/css/bootstrap.css';
 /**
  * 常用的路由模块
@@ -10,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.css';
  */
 // import { HashRouter as Router, Route } from 'react-router-dom';
 
-import { Route } from "./react-router-dom/index";
+import { Route, Switch, Protected } from "./react-router-dom/index";
 // Router ：路由容器   Route ：路由规则
 
 let Home = (props, context) => {
@@ -38,9 +39,13 @@ let Profile = () => (<div>个人设置</div>);
 
 ReactDOM.render(
     < App >
-        <Route path="/home" component={Home} />
-        <Route path="/user" component={User} />
-        <Route path="/profile" component={Profile} />
+        <Switch>
+            <Route path="/home" component={Home} />
+            <Route path="/user" component={User} />
+            <Route path="/login" component={Login} />
+            
+            <Protected path="/profile" component={Profile} />
+        </Switch>
     </App >,
     document.querySelector("#root")
 );
